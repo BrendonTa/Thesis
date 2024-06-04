@@ -1,0 +1,2 @@
+[gymnasium.envs]
+__root__ = Abb_robot.__init__:register_robotics_envs

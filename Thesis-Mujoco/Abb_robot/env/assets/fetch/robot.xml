@@ -1,0 +1,72 @@
+<mujoco>
+    <body mocap="true" name="Abb-Robot" pos="0 0 0">
+        <geom conaffinity="0" contype="0" pos="0 0 0" rgba="0 0.5 0 0.7" size="0.005 0.005 0.005" type="box"></geom>
+		<geom conaffinity="0" contype="0" pos="0 0 0" rgba="0 0.5 0 0.1" size="1 0.005 0.005" type="box"></geom>
+		<geom conaffinity="0" contype="0" pos="0 0 0" rgba="0 0.5 0 0.1" size="0.005 1 0.001" type="box"></geom>
+		<geom conaffinity="0" contype="0" pos="0 0 0" rgba="0 0.5 0 0.1" size="0.005 0.005 1" type="box"></geom>
+	</body>
+    <body name="base_link" pos="0.5 0.3 0">
+		<joint armature="0.0001" axis="1 0 0" damping="1e+11" name="robot0:slide0" pos="0 0 0" type="slide"></joint>
+		<joint armature="0.0001" axis="0 1 0" damping="1e+11" name="robot0:slide1" pos="0 0 0" type="slide"></joint>
+		<joint armature="0.0001" axis="0 0 1" damping="1e+11" name="robot0:slide2" pos="0 0 0" type="slide"></joint>
+		<inertial diaginertia="1.2869 1.2236 0.9868" mass="70.1294" pos="-0.0036 0 0.0014" quat="0.7605 -0.0133 -0.0061 0.6491"></inertial>
+        <geom type="mesh" contype="0" conaffinity="0" group="1" rgba="1 0.43 0 1" mesh="base_link" />
+        <geom type="mesh" rgba="1 0.43 0 1" mesh="base_link" />
+        <body name="link_1" pos="0 0 0">
+            <inertial pos="0.000560071 -0.000434127 0.226316" quat="0.801565 -0.015564 -0.0077314 0.597655" mass="3.64879" diaginertia="0.0159166 0.0156841 0.0125337" />
+            <joint name="joint_1" pos="0 0 0" axis="0 0 1" limited="true" range="-2.87979 2.87979" />
+            <geom type="mesh" contype="0" conaffinity="0" group="1" rgba="1 0.43 0 1" mesh="link_1" />
+            <geom type="mesh" rgba="1 0.43 0 1" mesh="link_1" />
+            <body name="link_2" pos="0 0 0.29">
+                <inertial pos="0.000467617 -0.00467841 0.106137" quat="0.999978 0.00659 0.000358507 -0.000487306" mass="6.15846" diaginertia="0.0720228 0.0540707 0.027143" />
+                <joint name="joint_2" pos="0 0 0" axis="0 1 0" limited="true" range="-1.91986 1.91986" />
+                <geom type="mesh" contype="0" conaffinity="0" group="1" rgba="1 0.43 0 1" mesh="link_2" />
+                <geom type="mesh" rgba="1 0.43 0 1" mesh="link_2" />
+                <body name="link_3" pos="0 0 0.27">
+                    <inertial pos="0.0349419 0.000643017 0.0608898" quat="0.540805 0.456397 0.43415 0.557446" mass="2.76594" diaginertia="0.0160792 0.0134954 0.00622715" />
+                    <joint name="joint_3" pos="0 0 0" axis="0 1 0" limited="true" range="-1.91986 1.22173" />
+                    <geom type="mesh" contype="0" conaffinity="0" group="1" rgba="1 0.43 0 1" mesh="link_3" />
+                    <geom type="mesh" rgba="1 0.43 0 1" mesh="link_3" />
+                    <body name="link_4" pos="0 0 0.07">
+                        <inertial pos="0.233053 0.000132096 0.00155185" quat="-0.00504506 0.716239 -0.0137299 0.697702" mass="1.52785" diaginertia="0.00526958 0.00386926 0.00284308" />
+                        <joint name="joint_4" pos="0 0 0" axis="1 0 0" limited="true" range="-2.79253 2.79253" />
+                        <geom type="mesh" contype="0" conaffinity="0" group="1" rgba="1 0.43 0 1" mesh="link_4" />
+                        <geom type="mesh" rgba="1 0.43 0 1" mesh="link_4" />
+                        <body name="link_5" pos="0.302 0 0">
+                            <inertial pos="0.00667692 0.000228268 4.44291e-05" quat="0.499532 0.499393 0.500216 0.500858" mass="0.441995" diaginertia="0.000678368 0.000631148 0.000279357" />
+                            <joint name="joint_5" pos="0 0 0" axis="0 1 0" limited="true" range="-2.0944 2.0944" />
+                            <geom type="mesh" contype="0" conaffinity="0" group="1" rgba="1 0.43 0 1" mesh="link_5" />
+                            <geom type="mesh" rgba="1 0.43 0 1" mesh="link_5" />
+                            <body name="link_6" pos="0.072 0 0">
+                                <inertial pos="-0.00645772 0.00021787 6.81294e-06" quat="0.706305 0.707904 -0.00153552 -0.00157544" mass="0.0138998" diaginertia="2.65743e-06 1.51945e-06 1.47821e-06" />
+                                <joint name="joint_6" pos="0 0 0" axis="1 0 0" limited="true" range="-6.98132 6.98132" />
+                                <geom type="mesh" contype="0" conaffinity="0" group="1" rgba="0 0 0 1" mesh="link_6" />
+                                <geom type="mesh" rgba="0 0 0 1" mesh="link_6"/>
+                                <body euler="0 0 0" name="robot0:gripper_link" pos="0.1664 0 0">
+										<inertial diaginertia="0.0024 0.0019 0.0013" mass="1.5175" pos="-0.09 -0.0001 -0.0017" quat="0 0.7071 0 0.7071"></inertial>
+										<geom mesh="robot0:gripper_link" name="robot0:gripper_link" material="robot0:gripper_mat"></geom>
+										<body name="robot0:gripper_camera_link" pos="0.055 0 0.0225">
+											<body name="robot0:gripper_camera_rgb_frame" pos="0 0.02 0">
+												<body name="robot0:gripper_camera_rgb_optical_frame" pos="0 0 0" quat="0.5 -0.5 0.5 -0.5">
+													<camera euler="3.1415 0 0" fovy="50" name="gripper_camera_rgb" pos="0 0 0"></camera>
+												</body>
+											</body>
+											<body name="robot0:gripper_camera_depth_frame" pos="0 0.045 0">
+												<body name="robot0:gripper_camera_depth_optical_frame" pos="0 0 0" quat="0.5 -0.5 0.5 -0.5"></body>
+											</body>
+										</body>
+											<body childclass="robot0:fetchGripper" name="robot0:suction_link" pos="0 0 0">
+												<inertial diaginertia="0.1 0.1 0.1" mass="10" pos="-0.01 0 0"></inertial>
+												<joint axis="0 1 0" name="robot0:suction_link" range="0 0.05"></joint>
+												<geom pos="0 -0.008 0" size="0.0335 0.0165 0.0165" type="box" name="robot0:suction_link" material="robot0:gripper_finger_mat" condim="4" friction="1 0.05 0.01"></geom>
+											</body>
+											    <site name="robot0:grip" pos="0.02 0 0" rgba="0 0 0 0" size="0.02 0.02 0.02" type="box"></site>
+                                    </body>                
+                                </body>
+                            </body>
+                        </body>
+                    </body>
+                </body>
+            </body>
+        </body>
+</mujoco>

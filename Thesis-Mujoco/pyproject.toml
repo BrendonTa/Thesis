@@ -1,0 +1,98 @@
+# Package ######################################################################
+
+[build-system]
+requires = ["setuptools >= 61.0.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "Abb-robot"
+description = "Robotics environments for the Gymnasium repo."
+requires-python = ">= 3.8"
+authors = [{ name = "Farama Foundation", email = "contact@farama.org" }]
+license = { text = "MIT License" }
+keywords = ["Reinforcement Learning", "Gymnasium", "RL", "AI", "Robotics"]
+classifiers = [
+    "Development Status :: 4 - Beta",  # change to `5 - Production/Stable` when ready
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    'Intended Audience :: Science/Research',
+    'Topic :: Scientific/Engineering :: Artificial Intelligence',
+]
+dependencies = [
+    "mujoco>=2.3.3",
+    "numpy>=1.21.0",
+    "gym<=0.21",
+    "PettingZoo>=1.23.0",
+    "Jinja2>=3.0.3",
+    "imageio"
+]
+dynamic = ["version"]
+
+[project.optional-dependencies]
+# Update dependencies in `all` if any are added or removed
+testing = [
+	"pytest==7.0.1",
+	"mujoco_py<2.2,>=2.1",
+    "cython<3",
+    "PettingZoo>=1.23.0",
+    "Jinja2>=3.0.3",
+]
+mujoco_py = ["mujoco_py<2.2,>=2.1", "cython<3"]
+
+[project.entry-points."gymnasium.envs"]
+__root__ = "Abb_robot.__init__:register_robotics_envs"
+
+[tool.setuptools]
+py-modules = []
+include-package-data = true
+
+[tool.setuptools.package-data]
+
+Abb_robot = [
+    "env/assets/LICENSE.md",
+    "env/assets/*.xml",
+    "env/assets/fetch/*.xml",
+    "env/assets/objects/*.xml",
+    "env/assets/textures/*.png",
+    "env/assets/stls/fetch/*.stl",
+]
+
+# Linters and Test tools #######################################################
+
+[tool.black]
+safe = true
+
+[tool.isort]
+atomic = true
+profile = "black"
+src_paths = ["Abb-robot"]
+
+[tool.pyright]
+include = [
+    "Abb-robot/**",
+]
+
+
+exclude = [
+    "**/node_modules",
+    "**/__pycache__",
+]
+
+
+strict = []
+
+typeCheckingMode = "basic"
+pythonVersion = "3.7"
+pythonPlatform = "All"
+typeshedPath = "typeshed"
+enableTypeIgnoreComments = true
+
+# This is required as the CI pre-commit does not download the module (i.e. numpy)
+#   Therefore, we have to ignore missing imports
+
+reportMissingImports = "none"
+reportGeneralTypeIssues = "none"  # -> commented out raises 489 errors

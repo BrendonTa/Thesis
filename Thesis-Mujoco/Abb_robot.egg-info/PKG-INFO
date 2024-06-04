@@ -1,0 +1,32 @@
+Metadata-Version: 2.1
+Name: Abb-robot
+Version: 1.2.3
+Summary: Robotics environments for the Gymnasium repo.
+Author-email: Farama Foundation <contact@farama.org>
+License: MIT License
+Keywords: Reinforcement Learning,Gymnasium,RL,AI,Robotics
+Classifier: Development Status :: 4 - Beta
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Intended Audience :: Science/Research
+Classifier: Topic :: Scientific/Engineering :: Artificial Intelligence
+Requires-Python: >=3.8
+Requires-Dist: mujoco>=2.3.3
+Requires-Dist: numpy>=1.21.0
+Requires-Dist: gym<=0.21
+Requires-Dist: PettingZoo>=1.23.0
+Requires-Dist: Jinja2>=3.0.3
+Requires-Dist: imageio
+Provides-Extra: testing
+Requires-Dist: pytest==7.0.1; extra == "testing"
+Requires-Dist: mujoco_py<2.2,>=2.1; extra == "testing"
+Requires-Dist: cython<3; extra == "testing"
+Requires-Dist: PettingZoo>=1.23.0; extra == "testing"
+Requires-Dist: Jinja2>=3.0.3; extra == "testing"
+Provides-Extra: mujoco-py
+Requires-Dist: mujoco_py<2.2,>=2.1; extra == "mujoco-py"
+Requires-Dist: cython<3; extra == "mujoco-py"

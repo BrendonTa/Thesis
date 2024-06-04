@@ -1,0 +1,16 @@
+Robotics.py
+the purpose of this document is to run the learning agent environment. 
+There will be 2 reinforcement learning algorithms that will be used HER and PPO
+To use HER comment out the PPO model learning line and to use PPO uncomment the line that initializes the PPO code
+
+bin_pick.py
+Hyperparameters and additional environment conditionings are done here. in particular the usage of sparse or dense reward will mainly be used 
+to ensure the end effector stays still the block gripper is set to always be true
+Distance goal is the acceptable distance the block can be away from and can be still considered a goal.
+
+
+robot_env.py
+Initialises all the data and gets the entire simulation prepared
+
+fetch_env.py
+Contains the action logic, step functions, environment setup function that is specific to the task, and reward calculation
